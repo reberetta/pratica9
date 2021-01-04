@@ -1,0 +1,26 @@
+{% extends 'template.html' %}
+{% block titulo %} Cadastrar Produto {% endblock %}
+{% block corpo %}
+
+<div>
+  <form action="/produto">
+    <label >Nome: </label>
+    <input type="text" name="nome" placeholder="Nome" required>
+    </br>
+    </br>
+    <label >Descrição: </label>
+    <input type="text" name="descricao" placeholder="Descrição" required>
+    </br>
+    </br>
+    <label >Preço: </label>
+    <input type="number" name="preco" placeholder="Preço" required>
+    <input type="submit" value="Salvar">
+    </br>
+    </br>
+  </form>
+</div>
+
+</br>
+<a href='/'> Voltar </a>
+
+{% endblock %}

@@ -1,18 +1,11 @@
 {% extends 'template.html' %}
 {% block corpo %}
 
-
-<form action='/calcular' > 
-    <label>numero 1 :</label> <input type='number' name='num1'/> <br />
-
+<ul>
     {% for i in lista %}
-        <input type='radio' value="{{i['nome']}}" name='operacao' {% if i['nome']=='somar' %}checked{% endif %} />
-        <label>{{i['nome']}}</label> <br />
+    <li>
+        <a href="{{i['rota']}}">{{i['nome']}}</a>
+    </li>
     {%  endfor %}
-    <br />
-    <input type='submit' value='Calcular' /> <br />
-</form>
-
-
-
+</ul>
 {% endblock %}

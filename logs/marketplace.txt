@@ -1,0 +1,2 @@
+netshoes;loja de sapatos
+petlove;cachorros

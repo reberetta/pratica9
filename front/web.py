@@ -1,9 +1,11 @@
+import sys  
+sys.path.append('pratica9/')
+
+
 from flask import Flask, render_template, request
 
 from back.marketplace import add_new_marketplace
 
-import sys  
-sys.path.append('pratica9/')
 
 
 app = Flask(__name__)
@@ -27,6 +29,8 @@ def addmkp():
 def sucesso():  
 
     mkp = request.args.get('mkp')
+    mkp_desc = request.args.get('mkp_desc')
+    add_new_marketplace(mkp, mkp_desc)
 
 
     return f'Sucesso' 

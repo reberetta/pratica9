@@ -1,3 +1,7 @@
+import sys
+sys.path.append('back')
+from historico import salvar_historico
+
 class Produto:
     
     
@@ -5,3 +9,4 @@ class Produto:
         arq = open('back/produto/produtos.txt', 'a')
         arq.write(f'{nome};{descricao};{preco}\n')
         arq.close()
+        salvar_historico('Cadastrar Produto') 

@@ -1,0 +1,4 @@
+netshoes;loja de sapatos
+petlove;cachorros
+dfds;fdsf
+dsads;dasd

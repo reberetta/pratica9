@@ -1,2 +1,1 @@
-Cerveja;Bebida;5
-Vinho;Bebida;50
+

@@ -24,17 +24,13 @@ def index():
 @app.route('/addmkp')
 def addmkp():  
 
-    return render_template('addmkp.html', nome=titulo_app)
-
-@app.route('/sucesso')
-def sucesso():  
-
     mkp = request.args.get('mkp')
     mkp_desc = request.args.get('mkp_desc')
     add_new_marketplace(mkp, mkp_desc)
+    if mkp != None:
+        add_new_marketplace(mkp, mkp_desc)
 
-
-    return f'Sucesso' 
+    return render_template('addmkp.html', nome=titulo_app)
 
 @app.route('/produto')
 def cadastrar_produto():

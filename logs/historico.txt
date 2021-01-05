@@ -9,3 +9,17 @@
 17:21:51 - 04/01/2021 - Cadastrar Produto
 17:22:09 - 04/01/2021 - Cadastrar Produto
 17:23:17 - 04/01/2021 - Cadastrar Produto
+08:41:12 - 05/01/2021 - Cadastrar Marketplace
+08:41:12 - 05/01/2021 - Cadastrar Marketplace
+08:41:27 - 05/01/2021 - Cadastrar Produto
+08:41:55 - 05/01/2021 - Cadastrar Marketplace
+08:42:01 - 05/01/2021 - Cadastrar Marketplace
+08:42:01 - 05/01/2021 - Cadastrar Marketplace
+08:43:27 - 05/01/2021 - Cadastrar Marketplace
+08:43:27 - 05/01/2021 - Cadastrar Marketplace
+08:43:29 - 05/01/2021 - Cadastrar Marketplace
+08:43:29 - 05/01/2021 - Cadastrar Marketplace
+08:49:36 - 05/01/2021 - Cadastrar Marketplace
+08:49:53 - 05/01/2021 - Cadastrar Produto
+08:49:56 - 05/01/2021 - Cadastrar Produto
+08:49:57 - 05/01/2021 - Cadastrar Produto

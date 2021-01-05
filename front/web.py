@@ -3,7 +3,7 @@ sys.path.append('back')
 
 
 from flask import Flask, render_template, request, redirect, url_for
-from marketplace import add_new_marketplace
+from marketplace import add_new_marketplace, list_marketplaces
 from produto.produto import Produto
 
 
@@ -30,6 +30,11 @@ def addmkp():
         return redirect(url_for('sucesso'), code=302)
 
     return render_template('addmkp.html', nome=titulo_app)
+
+@app.route('/marketplaces')
+def marketplaces():  
+    result = list_marketplaces()
+    return render_template('addmkp.html', nome=titulo_app, lista = result)
 
 @app.route('/produto')
 def cadastrar_produto():

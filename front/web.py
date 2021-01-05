@@ -2,8 +2,7 @@ import sys
 sys.path.append('back')
 
 
-from flask import Flask, render_template, request
-
+from flask import Flask, render_template, request, redirect, url_for
 from marketplace import add_new_marketplace
 from produto.produto import Produto
 
@@ -26,9 +25,9 @@ def addmkp():
 
     mkp = request.args.get('mkp')
     mkp_desc = request.args.get('mkp_desc')
-    add_new_marketplace(mkp, mkp_desc)
     if mkp != None:
         add_new_marketplace(mkp, mkp_desc)
+        return redirect(url_for('sucesso'), code=302)
 
     return render_template('addmkp.html', nome=titulo_app)
 
@@ -40,7 +39,14 @@ def cadastrar_produto():
     preco = request.args.get('preco')
     if nome != None:
         p.cadastrar_produto(nome, desc, preco)
+        return redirect(url_for('sucesso'), code=302)
+        
     return render_template('produto.html')
+
+@app.route('/sucesso')
+def sucesso():
+
+    return render_template('sucesso.html')
 
 
 app.run(debug=True)

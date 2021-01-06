@@ -8,3 +8,15 @@ def cadastrar_produto(nome:str, descricao:str, preco:float ):
     arq.write(f'{nome};{descricao};{preco}\n')
     arq.close()
     salvar_historico('Cadastrar Produto') 
+
+
+def list_products():
+    products_rows = []
+    file = open('back/produto/produtos.txt', 'r')
+
+    for line in file:
+        treated_line = line.strip().split(';')
+        products_rows.append(treated_line)
+    file.close()
+
+    return products_rows

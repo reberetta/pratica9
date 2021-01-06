@@ -4,6 +4,7 @@ sys.path.append('back')
 
 from flask import Flask, render_template, request, redirect, url_for
 from marketplace import add_new_marketplace, list_marketplaces
+from seller import register_seller, list_sellers
 from produto.produto import cadastrar_produto, list_products
 
 
@@ -52,6 +53,23 @@ def cadastro_produto():
 def read_products():
     products = list_products()
     return render_template('show_products.html', products = products)
+
+@app.route('/new_seller')
+def create_seller():
+    name = request.args.get('name')
+    email = request.args.get('email')
+    telephone = request.args.get('telephone')
+
+    if name != None:
+        register_seller(name, email, telephone)
+        return redirect(url_for('sucesso'), code=302)
+        
+    return render_template('add_seller.html')
+
+@app.route('/sellers')
+def read_sellers():
+    sellers = list_sellers()
+    return render_template('show_sellers.html', sellers = sellers)
 
 @app.route('/sucesso')
 def sucesso():

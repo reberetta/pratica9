@@ -1,0 +1,31 @@
+{% extends 'template.html' %}
+{% block corpo %}
+
+<div>
+    <form action="/new_seller">
+
+      <label > NOME: </label>
+      <input type="text" name="name" placeholder="Ex. João" required />
+      <br>
+
+      <label > EMAIL: </label>
+      <input type="email" name="email" placeholder="contato@joão.com" required />
+      <br>
+
+      <label > TELEFONE: </label>
+      <input type="text" name="telephone" placeholder="1122223333" required />
+      <br>
+
+      <input type="submit" value="Salvar">
+      <br>
+
+    </form>
+  </div>
+  
+  <div class="row justify-content-center">
+    <div class="col-3">
+      <a class="btn btn-light btn-outline-secondary" href='/'>Voltar</a>
+    </div>
+  </div>
+
+{% endblock %}

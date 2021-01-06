@@ -3,6 +3,11 @@ body{
     background:#d0dbe8;
 }
 a{
-    color:# #990000
-    ; 
+    color:#990000; 
+}
+.custom-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
 }

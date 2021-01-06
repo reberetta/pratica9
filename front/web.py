@@ -3,9 +3,8 @@ sys.path.append('back')
 
 
 from flask import Flask, render_template, request, redirect, url_for
-from marketplace import add_new_marketplace
+from marketplace import add_new_marketplace, list_marketplaces
 from produto.produto import cadastrar_produto, list_products
-
 
 
 app = Flask(__name__)
@@ -17,8 +16,9 @@ titulo_app = 'Pratica 9'
 def index():
     marketplaces = {'nome': 'Cadastrar novo marketplace', 'rota': '/addmkp'}
     produtos = {'nome': 'Cadastrar novo produto', 'rota': '/produto'}
+    listar_marketplaces = {'nome': 'Listar marketplaces', 'rota': '/marketplaces'}
     products = {'nome': 'Listar produtos', 'rota': '/products'}
-    lista = [marketplaces, produtos, products]
+    lista = [marketplaces, listar_marketplaces, produtos, products]
     return render_template('index.html', nome=titulo_app, lista=lista)
 
 @app.route('/addmkp')
@@ -31,6 +31,11 @@ def addmkp():
         return redirect(url_for('sucesso'), code=302)
 
     return render_template('addmkp.html', nome=titulo_app)
+
+@app.route('/marketplaces')
+def marketplaces():  
+    result = list_marketplaces()
+    return render_template('marketplaces.html', lista = result)
 
 @app.route('/produto')
 def cadastro_produto():

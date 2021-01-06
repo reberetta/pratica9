@@ -35,7 +35,7 @@ def addmkp():
 @app.route('/marketplaces')
 def marketplaces():  
     result = list_marketplaces()
-    return render_template('marketplaces.html', nome=titulo_app, lista = result)
+    return render_template('marketplaces.html', lista = result)
 
 @app.route('/produto')
 def cadastrar_produto():

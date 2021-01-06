@@ -1,0 +1,22 @@
+{% extends 'template.html' %}
+{% block titulo %} Cadastrar Produto {% endblock %}
+{% block corpo %}
+
+<div>
+  <form action="/cadastro_categoria">
+    <label >Nome: </label>
+    <input type="text" id="name" name="name" placeholder="Nome" required>
+    </br>
+    </br>
+    <label >Descrição: </label>
+    <input type="text" id="description" name="description" placeholder="Descrição" required>
+    <input type="submit" value="Salvar">
+    </br>
+    </br>
+  </form>
+</div>
+
+</br>
+<a href='/'> Voltar </a>
+
+{% endblock %}

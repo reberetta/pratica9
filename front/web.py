@@ -18,7 +18,9 @@ def index():
     produtos = {'nome': 'Cadastrar novo produto', 'rota': '/produto'}
     listar_marketplaces = {'nome': 'Listar marketplaces', 'rota': '/marketplaces'}
     products = {'nome': 'Listar produtos', 'rota': '/products'}
-    lista = [marketplaces, listar_marketplaces, produtos, products]
+    categorias = {'nome': 'Cadastrar nova categoria', 'rota': '/cadastro_categoria'}
+    listar_categorias = {'nome': 'Listar categorias', 'rota': '/categories'}
+    lista = [marketplaces, listar_marketplaces, produtos, products, categorias, listar_categorias]
     return render_template('index.html', nome=titulo_app, lista=lista)
 
 @app.route('/addmkp')
@@ -58,7 +60,7 @@ def cadastro_categoria():
     name = request.args.get('name')
     description = request.args.get('description')
     if name != None:
-        cadastrar_produto(name, description)
+        create_category(name, description)
         return redirect(url_for('sucesso'), code=302)
         
     return render_template('category.html')

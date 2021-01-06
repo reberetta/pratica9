@@ -2,14 +2,14 @@ from historico import salvar_historico
 category_txt = "logs/categories.txt"
 
 
-def salvar_arquivo(caminho: str, linha: str) -> None:
-    with open(caminho, 'a', encoding='utf-8'):
-        arquivo.write(f'{linha}\n')
+def salvar_arquivo(path: str, string: str) -> None:
+    with open(path, 'a', encoding='utf-8') as file_:
+        file_.write(f'{string}\n')
 
 
 def create_category(name: str, description: str) -> None:  
-    if isinstance(name, str) and isinstance(desc, str): 
-        category = f'{name};{desc}'
+    if isinstance(name, str) and isinstance(description, str): 
+        category = f'{name};{description}'
         salvar_arquivo(category_txt, category)
     salvar_historico('Cadastrar Categoria') 
 

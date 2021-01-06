@@ -1,0 +1,21 @@
+{% extends 'template.html' %}
+{% block corpo %}
+<div>
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+        </tr>
+        {% for item in lista %}
+        <tr>
+            <td>{{item['name']}}</td>
+            <td>{{item['description']}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</br>
+<div>
+    <a href='/'> Voltar </a>
+</div>
+{% endblock %}

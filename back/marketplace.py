@@ -3,7 +3,7 @@ mkp_file = "logs/marketplace.txt"
 
 
 def salvar_arquivo(caminho:str,linha:str) -> None:
-    arquivo = open(caminho,'a')
+    arquivo = open(caminho, 'a', encoding='utf-8')
     arquivo.write(f'{linha}\n')
     arquivo.close()
 

@@ -1,1 +1,2 @@
 aaa;bbbbb
+Amazon;Descrição da amazon

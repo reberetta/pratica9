@@ -3,6 +3,10 @@ body{
     background:#d0dbe8;
 }
 a{
-    color:# #990000
-    ; 
+    color:#990000; 
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 4px;
 }

@@ -17,7 +17,8 @@ titulo_app = 'Pratica 9'
 def index():
     marketplaces = {'nome': 'Cadastrar novo marketplace', 'rota': '/addmkp'}
     produtos = {'nome': 'Cadastrar novo produto', 'rota': '/produto'}
-    lista = [marketplaces, produtos]
+    listar_marketplaces = {'nome': 'Listar marketplaces', 'rota': '/marketplaces'}
+    lista = [marketplaces, listar_marketplaces, produtos]
     return render_template('index.html', nome=titulo_app, lista=lista)
 
 @app.route('/addmkp')
@@ -34,7 +35,7 @@ def addmkp():
 @app.route('/marketplaces')
 def marketplaces():  
     result = list_marketplaces()
-    return render_template('addmkp.html', nome=titulo_app, lista = result)
+    return render_template('marketplaces.html', nome=titulo_app, lista = result)
 
 @app.route('/produto')
 def cadastrar_produto():

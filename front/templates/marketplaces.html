@@ -4,16 +4,20 @@
 <div class="row justify-content-center">
     <div class="col-4">
         <table class="table table-primary table-hover table-bordered">
-            <tr>
-                <th scope="col">NOME</th>
-                <th scope="col">DESCRIÇÃO</th>
-            </tr>
-            {% for item in lista %}
-            <tr>
-                <td>{{item['name']}}</td>
-                <td>{{item['description']}}</td>
-            </tr>
-            {% endfor %}
+            <thead>
+                <tr>
+                    <th scope="col">NOME</th>
+                    <th scope="col">DESCRIÇÃO</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in lista %}
+                <tr>
+                    <td>{{item['name']}}</td>
+                    <td>{{item['description']}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
     </div> 
     </br>
@@ -23,6 +27,4 @@
         <a class="btn btn-light btn-outline-secondary" href='/'>Voltar</a>
     </div>
 </div>
-
-
 {% endblock %}

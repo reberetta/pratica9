@@ -18,5 +18,6 @@ def list_products():
         treated_line = line.strip().split(';')
         products_rows.append(treated_line)
     file.close()
+    salvar_historico('Listar Produto') 
 
     return products_rows

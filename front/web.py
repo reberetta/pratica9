@@ -19,7 +19,17 @@ def index():
     produtos = {'nome': 'Cadastrar novo produto', 'rota': '/produto'}
     listar_marketplaces = {'nome': 'Listar marketplaces', 'rota': '/marketplaces'}
     products = {'nome': 'Listar produtos', 'rota': '/products'}
-    lista = [marketplaces, listar_marketplaces, produtos, products]
+    create_seller = {'nome': 'Cadastrar novo seller', 'rota': '/new_seller'}
+    list_sellers = {'nome': 'Listar sellers', 'rota': '/sellers'}
+
+    lista = [
+        marketplaces, 
+        listar_marketplaces, 
+        produtos, products, 
+        create_seller, 
+        list_sellers
+        ]
+
     return render_template('index.html', nome=titulo_app, lista=lista)
 
 @app.route('/addmkp')

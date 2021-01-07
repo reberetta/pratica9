@@ -3,6 +3,7 @@ sys.path.append('back')
 
 from flask import Flask, render_template, request, redirect, url_for
 from marketplace import add_new_marketplace, list_marketplaces
+from seller import register_seller, list_sellers
 from produto.produto import cadastrar_produto, list_products
 from category import create_category, list_categories
 
@@ -18,9 +19,21 @@ def index():
     produtos = {'nome': 'Cadastrar novo produto', 'rota': '/produto'}
     listar_marketplaces = {'nome': 'Listar marketplaces', 'rota': '/marketplaces'}
     products = {'nome': 'Listar produtos', 'rota': '/products'}
+    create_seller = {'nome': 'Cadastrar novo seller', 'rota': '/new_seller'}
+    list_sellers = {'nome': 'Listar sellers', 'rota': '/sellers'}
     categorias = {'nome': 'Cadastrar nova categoria', 'rota': '/cadastro_categoria'}
     listar_categorias = {'nome': 'Listar categorias', 'rota': '/categories'}
-    lista = [marketplaces, listar_marketplaces, produtos, products, categorias, listar_categorias]
+
+    lista = [
+        marketplaces, 
+        listar_marketplaces, 
+        produtos, products, 
+        create_seller, 
+        list_sellers,
+        categorias, 
+        listar_categorias
+        ]
+
     return render_template('index.html', nome=titulo_app, lista=lista)
 
 @app.route('/addmkp')
@@ -54,6 +67,23 @@ def cadastro_produto():
 def read_products():
     products = list_products()
     return render_template('show_products.html', products = products)
+
+@app.route('/new_seller')
+def create_seller():
+    name = request.args.get('name')
+    email = request.args.get('email')
+    telephone = request.args.get('telephone')
+
+    if name != None:
+        register_seller(name, email, telephone)
+        return redirect(url_for('sucesso'), code=302)
+        
+    return render_template('add_seller.html')
+
+@app.route('/sellers')
+def read_sellers():
+    sellers = list_sellers()
+    return render_template('show_sellers.html', sellers = sellers)
 
 @app.route('/cadastro_categoria')
 def cadastro_categoria():

@@ -4,7 +4,7 @@ sys.path.append('back')
 from flask import Flask, render_template, request, redirect, url_for
 from marketplace import add_new_marketplace, list_marketplaces
 from seller import register_seller, list_sellers
-from produto.produto import cadastrar_produto, list_products
+from product import register_product, list_products
 from category import create_category, list_categories
 
 
@@ -58,7 +58,7 @@ def cadastro_produto():
     desc = request.args.get('descricao')
     preco = request.args.get('preco')
     if nome != None:
-        cadastrar_produto(nome, desc, preco)
+        register_product(nome, desc, preco)
         return redirect(url_for('sucesso'), code=302)
         
     return render_template('produto.html')

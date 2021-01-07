@@ -1,0 +1,2 @@
+sabonete;para ensaboar;5
+MacBook;as vezes funciona;90000000

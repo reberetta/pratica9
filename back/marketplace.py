@@ -1,4 +1,4 @@
-from historico import salvar_historico
+from log import register_log
 mkp_file = "logs/marketplace.txt"
 
 
@@ -12,7 +12,7 @@ def add_new_marketplace(name:str, desc:str)->None:
     if isinstance(name, str) and isinstance(desc, str): 
         linha = f'{name};{desc}'
         salvar_arquivo(mkp_file,linha)
-    salvar_historico('Cadastrar Marketplace') 
+    register_log('register', 'Marketplace') 
 
 
 def list_marketplaces() -> list:
@@ -23,5 +23,5 @@ def list_marketplaces() -> list:
             result = line.strip().split(';')
             marketplaces.append({'name': result[0], 'description': result[1]})
 
-    salvar_historico('Listar Marketplaces')   
+    register_log('list', 'marketplaces')   
     return marketplaces

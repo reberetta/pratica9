@@ -1,13 +1,13 @@
 import sys
 sys.path.append('back')
-from historico import salvar_historico
+from log import register_log
 
 
 def cadastrar_produto(nome:str, descricao:str, preco:float ):
     arq = open('back/produto/produtos.txt', 'a')
     arq.write(f'{nome};{descricao};{preco}\n')
     arq.close()
-    salvar_historico('Cadastrar Produto') 
+    register_log('register', 'product')
 
 
 def list_products():
@@ -18,6 +18,6 @@ def list_products():
         treated_line = line.strip().split(';')
         products_rows.append(treated_line)
     file.close()
-    salvar_historico('Listar Produto') 
+    register_log('list', 'product')
 
     return products_rows

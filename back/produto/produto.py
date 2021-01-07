@@ -1,14 +1,14 @@
-import sys
-sys.path.append('back')
 from log import register_log
 
 
-def cadastrar_produto(nome:str, descricao:str, preco:float ):
-    arq = open('back/produto/produtos.txt', 'a')
-    arq.write(f'{nome};{descricao};{preco}\n')
-    arq.close()
-    register_log('register', 'product')
+file_path = "logs/products.txt"
 
+
+def register_product(name: str, description: str, price: float ):
+    file = open(file_path, 'a')
+    file.write(f'{name};{description};{price}\n')
+    file.close()
+    register_log('register', 'product')
 
 def list_products():
     products_rows = []
@@ -18,6 +18,6 @@ def list_products():
         treated_line = line.strip().split(';')
         products_rows.append(treated_line)
     file.close()
-    register_log('list', 'product')
+    register_log(file_path, 'product')
 
     return products_rows

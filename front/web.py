@@ -6,6 +6,7 @@ from marketplace import add_new_marketplace, list_marketplaces
 from seller import register_seller, list_sellers
 from product import register_product, list_products
 from category import create_category, list_categories
+from log import read_log
 
 
 app = Flask(__name__)

@@ -16,7 +16,8 @@ def read_log() -> list:
     file = open(file_path, 'r')
 
     for line in file:
-        file_rows.append{'date': file_rows[0], 'action': file_rows[1], 'element': file_rows[2]}
+        treated_line = line.strip().split(';')
+        file_rows.append({'date': treated_line[0], 'action': treated_line[1], 'element': treated_line[2]})
     file.close()
 
     return file_rows

@@ -1,10 +1,10 @@
 import sys  
 sys.path.append('back')
 
-
 from flask import Flask, render_template, request, redirect, url_for
 from marketplace import add_new_marketplace, list_marketplaces
 from produto.produto import cadastrar_produto, list_products
+from category import create_category, list_categories
 
 
 app = Flask(__name__)
@@ -18,7 +18,9 @@ def index():
     produtos = {'nome': 'Cadastrar novo produto', 'rota': '/produto'}
     listar_marketplaces = {'nome': 'Listar marketplaces', 'rota': '/marketplaces'}
     products = {'nome': 'Listar produtos', 'rota': '/products'}
-    lista = [marketplaces, listar_marketplaces, produtos, products]
+    categorias = {'nome': 'Cadastrar nova categoria', 'rota': '/cadastro_categoria'}
+    listar_categorias = {'nome': 'Listar categorias', 'rota': '/categories'}
+    lista = [marketplaces, listar_marketplaces, produtos, products, categorias, listar_categorias]
     return render_template('index.html', nome=titulo_app, lista=lista)
 
 @app.route('/addmkp')
@@ -52,6 +54,21 @@ def cadastro_produto():
 def read_products():
     products = list_products()
     return render_template('show_products.html', products = products)
+
+@app.route('/cadastro_categoria')
+def cadastro_categoria():
+    name = request.args.get('name')
+    description = request.args.get('description')
+    if name != None:
+        create_category(name, description)
+        return redirect(url_for('sucesso'), code=302)
+        
+    return render_template('category.html')
+
+@app.route('/categories')
+def categories():  
+    result = list_categories()
+    return render_template('categories.html', lista = result)
 
 @app.route('/sucesso')
 def sucesso():

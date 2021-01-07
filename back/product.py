@@ -12,7 +12,7 @@ def register_product(name: str, description: str, price: float ):
 
 def list_products():
     products_rows = []
-    file = open('back/produto/produtos.txt', 'r')
+    file = open(file_path, 'r')
 
     for line in file:
         treated_line = line.strip().split(';')

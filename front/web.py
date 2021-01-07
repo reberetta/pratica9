@@ -23,6 +23,7 @@ def index():
     list_sellers = {'nome': 'Listar sellers', 'rota': '/sellers'}
     categorias = {'nome': 'Cadastrar nova categoria', 'rota': '/cadastro_categoria'}
     listar_categorias = {'nome': 'Listar categorias', 'rota': '/categories'}
+    listar_logs = {'nome': 'Listar logs', 'rota': '/logs'}
 
     lista = [
         marketplaces, 
@@ -31,7 +32,8 @@ def index():
         create_seller, 
         list_sellers,
         categorias, 
-        listar_categorias
+        listar_categorias,
+        listar_logs
         ]
 
     return render_template('index.html', nome=titulo_app, lista=lista)
@@ -99,6 +101,11 @@ def cadastro_categoria():
 def categories():  
     result = list_categories()
     return render_template('categories.html', lista = result)
+
+@app.route('/logs')
+def logs():  
+    result = read_log()
+    return render_template('logs.html', lista = result)
 
 @app.route('/sucesso')
 def sucesso():

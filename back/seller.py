@@ -1,4 +1,4 @@
-from historico import salvar_historico
+from log import register_log
 
 
 file_path = "logs/sellers.txt"
@@ -8,7 +8,7 @@ def register_seller(name: str, email: str, telephone: str) -> None:
     file = open(file_path, 'a')
     file.write(f'{name};{email};{telephone}\n')
     file.close()
-    salvar_historico('Cadastrar Seller') 
+    register_log('register', 'seller') 
 
 
 def list_sellers() -> list:
@@ -17,8 +17,8 @@ def list_sellers() -> list:
 
     for line in file:
         treated_line = line.strip().split(';')
-        products_rows.append(treated_line)
+        products_rows.append({'name': treated_line[0], 'email': treated_line[1], 'telephone': treated_line[2]})
     file.close()
-    salvar_historico('Listar Seller') 
+    register_log('list', 'seller') 
 
     return products_rows

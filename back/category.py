@@ -1,4 +1,4 @@
-from historico import salvar_historico
+from log import register_log
 category_txt = "logs/categories.txt"
 
 
@@ -11,7 +11,7 @@ def create_category(name: str, description: str) -> None:
     if isinstance(name, str) and isinstance(description, str): 
         category = f'{name};{description}'
         salvar_arquivo(category_txt, category)
-    salvar_historico('Cadastrar Categoria') 
+    register_log('register', 'category') 
 
 
 def list_categories() -> list:
@@ -22,5 +22,5 @@ def list_categories() -> list:
             result = line.strip().split(';')
             categories.append({'name': result[0], 'description': result[1]})
 
-    salvar_historico('Listar Categorias')   
+    register_log('list', 'category')   
     return categories

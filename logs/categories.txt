@@ -1,1 +1,2 @@
 Esportes;Categoria voltada a esportes
+Bebidas;Para se hidratar, ou se alcoolizar

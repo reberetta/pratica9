@@ -15,9 +15,9 @@
       <tbody>
         {% for seller in sellers %}
           <tr>
-            <td>{{ seller[0] }}</td>
-            <td>{{ seller[1] }}</td>
-            <td>{{ seller[2] }}</td>
+            <td>{{ seller['name'] }}</td>
+            <td>{{ seller['description'] }}</td>
+            <td>{{ seller['telephone'] }}</td>
           </tr>
         {% endfor %}
       </tbody>

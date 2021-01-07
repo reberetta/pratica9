@@ -18,6 +18,6 @@ def list_products():
         treated_line = line.strip().split(';')
         products_rows.append(treated_line)
     file.close()
-    register_log(file_path, 'product')
+    register_log('list', 'product')
 
     return products_rows

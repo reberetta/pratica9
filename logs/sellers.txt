@@ -1,3 +1,0 @@
-teste;teste;teste
-Marcos;marcos@olist.com;(22) 99999-4444
-Marcos;marcos@olist.com;(21) 999998888

@@ -1,3 +1,0 @@
-aaa;bbbbb
-Amazon;Descrição da amazon
-B2W;uma descrição bem descritiva sobre a B2W

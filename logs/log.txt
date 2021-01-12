@@ -1,4 +1,0 @@
-13:46:53 - 07/01/2021;list;category
-13:46:53 - 07/01/2021;list;seller
-13:46:53 - 07/01/2021;list;product
-13:46:53 - 07/01/2021;register;seller

@@ -1,12 +1,12 @@
 import sys  
-sys.path.append('back')
+sys.path.append('.')
 
 from flask import Flask, render_template, request, redirect, url_for
-from marketplace import add_new_marketplace, list_marketplaces
-from seller import register_seller, list_sellers
-from product import register_product, list_products
-from category import create_category, list_categories
-from log import read_log
+from back.controllers.marketplace_controller import create_marketplace, list_marketplaces
+from back.controllers.seller_controller import create_seller, list_sellers
+from back.controllers.product_controller import create_product, list_products
+from back.controllers.category_controller import create_category, list_categories
+from back.controllers.log_controller import create_log, list_log
 
 
 app = Flask(__name__)
@@ -45,7 +45,7 @@ def addmkp():
     mkp = request.args.get('mkp')
     mkp_desc = request.args.get('mkp_desc')
     if mkp != None:
-        add_new_marketplace(mkp, mkp_desc)
+        create_marketplace(mkp, mkp_desc)
         return redirect(url_for('sucesso'), code=302)
 
     return render_template('addmkp.html', nome=titulo_app)
@@ -55,36 +55,36 @@ def marketplaces():
     result = list_marketplaces()
     return render_template('marketplaces.html', lista = result)
 
+
 @app.route('/produto')
 def cadastro_produto():
     nome = request.args.get('nome')
     desc = request.args.get('descricao')
     preco = request.args.get('preco')
     if nome != None:
-        register_product(nome, desc, preco)
+        create_product(nome, desc, preco)
         return redirect(url_for('sucesso'), code=302)
         
     return render_template('produto.html')
 
 @app.route('/products')
-def read_products():
+def products():
     products = list_products()
     return render_template('show_products.html', products = products)
 
 @app.route('/new_seller')
-def create_seller():
+def cadastro_seller():
     name = request.args.get('name')
     email = request.args.get('email')
     telephone = request.args.get('telephone')
-
     if name != None:
-        register_seller(name, email, telephone)
+        create_seller(name, email, telephone)
         return redirect(url_for('sucesso'), code=302)
         
     return render_template('add_seller.html')
 
 @app.route('/sellers')
-def read_sellers():
+def sellers():
     sellers = list_sellers()
     return render_template('show_sellers.html', sellers = sellers)
 
@@ -105,7 +105,7 @@ def categories():
 
 @app.route('/logs')
 def logs():  
-    result = read_log()
+    result = list_log()
     return render_template('logs.html', lista = result)
 
 @app.route('/sucesso')

@@ -1,12 +1,12 @@
 from datetime import datetime
 
 
-file_path = 'logs/log.txt'
+file_path = 'back/data/log.txt'
 
 current_time = datetime.now()
 datetime_brazil_format = current_time.strftime('%H:%M:%S - %d/%m/%Y')
 
-def register_log(action: str, element: str) -> None:
+def save_log(action: str, element: str) -> None:
     file = open(file_path,'a')
     file.write(f'{datetime_brazil_format};{action};{element}\n')
     file.close()

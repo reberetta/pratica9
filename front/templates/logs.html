@@ -14,7 +14,7 @@
                 {% for item in lista %}
                 <tr class="{{'table-success' if item['action'] == 'register'}} {{'table-info' if item['action'] == 'list'}}">
                     <td>{{lista.index(item) + 1}}</td>
-                    <td>[{{item['date']}}]: {{item['action']}} {{item['element']}}</td>
+                    <td>[{{item['datetime_brazil_format']}}]: {{item['action']}} {{item['element']}}</td>
                 </tr>
                 {% endfor %}
             </tbody>

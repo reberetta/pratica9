@@ -1,16 +1,16 @@
-from log import register_log
+from back.controllers.log_controller import create_log
 
 
-file_path = "logs/products.txt"
+file_path = "back/data/products.txt"
 
 
-def register_product(name: str, description: str, price: float ):
+def save_product(name: str, description: str, price: float ):
     file = open(file_path, 'a')
     file.write(f'{name};{description};{price}\n')
     file.close()
-    register_log('register', 'product')
+    create_log('register', 'product')
 
-def list_products():
+def read_products() -> list:
     products_rows = []
     file = open(file_path, 'r')
 
@@ -18,6 +18,6 @@ def list_products():
         treated_line = line.strip().split(';')
         products_rows.append(treated_line)
     file.close()
-    register_log('list', 'product')
+    create_log('list', 'product')
 
     return products_rows

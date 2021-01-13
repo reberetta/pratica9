@@ -1,5 +1,5 @@
-from log import register_log
-category_txt = "logs/categories.txt"
+from back.controllers.log_controller import create_log
+category_txt = "back/data/categories.txt"
 
 
 def salvar_arquivo(path: str, string: str) -> None:
@@ -7,14 +7,14 @@ def salvar_arquivo(path: str, string: str) -> None:
         file_.write(f'{string}\n')
 
 
-def create_category(name: str, description: str) -> None:  
+def save_category(name: str, description: str) -> None:  
     if isinstance(name, str) and isinstance(description, str): 
         category = f'{name};{description}'
         salvar_arquivo(category_txt, category)
-    register_log('register', 'category') 
+        create_log('register', 'category') 
 
 
-def list_categories() -> list:
+def read_categories() -> list:
     categories = []
 
     with open(category_txt, 'r', encoding='utf-8') as categories_file:
@@ -22,5 +22,5 @@ def list_categories() -> list:
             result = line.strip().split(';')
             categories.append({'name': result[0], 'description': result[1]})
 
-    register_log('list', 'category')   
+    create_log('list', 'category')   
     return categories

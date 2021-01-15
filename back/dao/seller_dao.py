@@ -9,6 +9,8 @@ from back.models.seller import Seller
 
 
 class SellerDao(BaseDao):
+    def get_type(self):
+        return 'seller'
 
     def create_sellers_table() -> None:
         query = """

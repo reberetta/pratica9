@@ -6,6 +6,8 @@ from back.models.product import Product
 from .base_dao import BaseDao
 
 class ProductDao(BaseDao):
+    def get_type(self):
+        return 'product'
 
     def create_product_table(self):
         query = """
@@ -41,8 +43,8 @@ class ProductDao(BaseDao):
         return Product(id_=result[3], nome=result[0], descricao=result[1], preco=result[2])
         
     def update(self, product:object)->None:
-        query = f"UPDATE produtos SET nome = '{model.nome}', descricao = '{model.descricao}', preco = '{model.preco}';"
-        super.execute(query)
+        query = f"UPDATE produtos SET nome = '{product.nome}', descricao = '{product.descricao}', preco = '{product.preco}';"
+        super().execute(query)
     
     def delete(self, id_:int) -> None:
         query = f"DELETE FROM produtos WHERE id = {id_};"

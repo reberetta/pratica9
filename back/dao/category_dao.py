@@ -6,7 +6,9 @@ from back.models.category import Category
 from .connection import Connection 
 
 class CategoryDao(BaseDao):
-    
+    def get_type(self):
+        return 'product'
+
     def create_category_table() -> None:
         query = """
                 CREATE TABLE if not exists categorias(

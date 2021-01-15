@@ -8,7 +8,10 @@ from .base_dao import BaseDao
 
 
 class LogDao(BaseDao):
-    
+
+    def get_type(self):
+        return 'log'
+
     def create_log_table(self)->None:
         query = """
             CREATE TABLE if not exists logs(

@@ -7,6 +7,7 @@ from back.controllers.log_controller import LogController
 from back.controllers.marketplace_controller import MarketplaceController
 from back.controllers.seller_controller import SellerController
 from back.controllers.product_controller import ProductController
+from back.dao.log_dao import LogDao
 
 from back.models.category import Category
 from back.models.log import Log
@@ -84,7 +85,7 @@ def delete_category(id_):
 
 @app.route('/log/read')
 def read_logs():  
-    result = LogController().read_all()
+    result = LogDao().read_all()
     return render_template('read_logs.html', lista = result)
 
 
@@ -144,7 +145,7 @@ def update_product(id_):
     if request.args:
         name = request.args.get('name')
         description = request.args.get('description')
-        preco = requests.args.get('preco')
+        preco = request.args.get('preco')
         product = Product(nome=name, descricao=description, preco=preco, id_=id_)
         ProductController().update(product)
         return redirect("/")

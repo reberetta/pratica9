@@ -12,7 +12,11 @@
             </thead>
             <tbody>
                 {% for log in lista %}
-                <tr class="{{'table-success' if log.acao == 'register'}} {{'table-info' if log.acao == 'list'}}">
+                <tr class="{{'table-success' if log.acao == 'create'}}
+                           {{'table-danger' if log.acao == 'delete'}} 
+                           {{'table-dark' if log.acao == 'read_by_id'}} 
+                           {{'table-info' if log.acao == 'read_all'}}
+                           {{'table-warning' if log.acao == 'update'}}">
                     <td>{{ log.id_ }}</td>
                     <td>{{ log.data_do_registro }} : {{ log.acao }} {{ log.elemento }}</td>
                 </tr>
@@ -31,10 +35,11 @@
     <div class='legend-title'>Legenda</div>
         <div class='legend-scale'>
             <ul class='legend-labels'>
-            <li><span style='background:#d1e7dd;'></span>Register</li>
-            <li><span style='background:#f8d7da;'></span>Delete</li>
-            <li><span style='background:#cff4fc;'></span>List</li>
-            <li><span style='background:#fff3cd;'></span>Update</li>
+            <li><span style='background:#d1e7dd;'></span>Create</li>
+            <li><span style='background:#f8d7da;'></span>Read All</li>
+            <li><span style='background:#c6c8ca;'></span>Read by ID</li>
+            <li><span style='background:#cff4fc;'></span>Update</li>
+            <li><span style='background:#fff3cd;'></span>Delete</li>
             </ul>
         </div>
 </div>

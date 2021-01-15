@@ -55,4 +55,3 @@ class CategoryDao(BaseDao):
         print(id_)
         query = f"DELETE FROM CATEGORias WHERE ID = {id_};"
         super().execute(query)
-

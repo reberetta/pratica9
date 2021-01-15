@@ -1,7 +1,6 @@
 import sys
 sys.path.append('')
 
-# import psycopg2
 from datetime import datetime
 from back.models.log import Log
 from .base_dao import BaseDao
@@ -59,4 +58,3 @@ class LogDao(BaseDao):
     def delete(self, id_:int)->None: 
         query = f"DELETE FROM logs where ID = {id_};"
         super().execute(query)
-        

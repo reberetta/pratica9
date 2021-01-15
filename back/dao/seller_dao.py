@@ -1,8 +1,7 @@
 import sys
 sys.path.append('')
 
-#import psycopg2
-#from back.dao.config import _connection_string
+
 from back.dao.base_dao import BaseDao
 from back.dao.base_dao import Connection
 from back.models.seller import Seller
@@ -59,5 +58,3 @@ class SellerDao(BaseDao):
     def delete(self, id_:int)-> None:
         query = f"DELETE FROM sellers WHERE ID={id_};"
         super().execute(query)
-
-

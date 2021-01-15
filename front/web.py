@@ -171,12 +171,10 @@ def create_seller():
     
     return render_template('create_seller.html')
 
-
 @app.route('/seller/read')
 def read_sellers():
     sellers = SellerController().read_all()
     return render_template('read_sellers.html', sellers = sellers)
-
 
 @app.route("/seller/<id_>/delete")
 def delete_seller(id_):

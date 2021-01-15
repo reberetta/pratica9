@@ -1,7 +1,6 @@
 import sys
 sys.path.append('')
 
-# import psycopg2
 from back.models.marketplace import Marketplace
 from .base_dao import BaseDao
 

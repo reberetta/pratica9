@@ -16,6 +16,3 @@ class Connection:
     
     def __exit__(self, type, value, trace):
         self.__connection.close()
-
-
-

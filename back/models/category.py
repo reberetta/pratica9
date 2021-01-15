@@ -31,4 +31,3 @@ class Category:
     @id_.setter
     def id_(self, id_:int):
         self.__id_ = id_
-        

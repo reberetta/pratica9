@@ -14,3 +14,4 @@ class BaseDao:
                 cursor.execute(query)
                 result = cursor.fetchall()
         return result
+        

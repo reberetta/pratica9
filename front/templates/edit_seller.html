@@ -1,0 +1,30 @@
+{% extends 'template.html' %}
+{% block titulo %}Editar Seller{% endblock %}
+{% block corpo %}
+
+<div id="seller">
+    <form action="/seller/{{seller.id_}}/update" method="GET">
+        <input name="id" id="id" value="{{seller.id_}}" hidden>
+
+        <label>Nome: </label> <input type='text' name='name' placeholder="Escreva o nome do Seller"
+            value="{{seller.nome}}" required />
+        <br>
+        <br>
+        <label>Email: </label> <input type='text' name='email' placeholder="Escreva o email"
+            value="{{seller.email}}" required />
+        <br>
+        <br>
+        <label>Telefone: </label> <input type='text' name='telefone'
+            value="{{seller.telefone}}" required />
+        <br>
+        <br>
+        <div class="buttons"><button type='submit' value=''>Atualizar Seller</button> 
+            <br>
+            <br>
+            <a href="{{url_for('index')}}"><button type='button' 
+                value=''>Back</button></a>
+        </div>
+    </form>
+</div>
+
+{% endblock %} 

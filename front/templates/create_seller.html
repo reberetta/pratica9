@@ -1,27 +1,26 @@
 {% extends 'template.html' %}
+{% block titulo %} Cadastrar Seller {% endblock %}
 {% block corpo %}
 
 <div>
-    <form action="/new_seller">
-
-      <label > NOME: </label>
+    <form action="/seller/create">
+      <label > Nome: </label>
       <input type="text" name="name" placeholder="Ex. João" required />
       <br>
-
-      <label > EMAIL: </label>
+      <br>
+      <label > E-mail: </label>
       <input type="email" name="email" placeholder="contato@joão.com" required />
       <br>
-
-      <label > TELEFONE: </label>
+      <br>
+      <label > Telefone: </label>
       <input type="text" name="telephone" placeholder="1122223333" required />
       <br>
-
+      <br>
       <input type="submit" value="Salvar">
       <br>
-
     </form>
   </div>
-  
+
   <div class="row justify-content-center">
     <div class="col-3">
       <a class="btn btn-light btn-outline-secondary" href='/'>Voltar</a>

@@ -1,0 +1,31 @@
+{% extends 'template.html' %}
+{% block titulo %}Editar Produto{% endblock %}
+{% block corpo %}
+
+<div id="product">
+    <form action="/product/{{product.id_}}/update" method="GET">
+        <input name="id" id="id" value="{{product.id_}}" hidden>
+
+        <label>Nome: </label> <input type='text' name='name' placeholder="Escreva o nome do Produto"
+            value="{{product.nome}}" required /> 
+        <br>
+        <br>
+        <label>Descrição: </label> <input type='text' name='description' placeholder="Escreva a descriptição"
+            value="{{product.descricao}}" required /> 
+        <br>
+        <br>
+        <label>Preço: </label> <input type='text' name='price'
+            value="{{product.preco}}" required />
+        <br>
+        <br>
+        <div class="buttons">
+            <button type='submit' value=''>Atualizar Produto</button> 
+            <br>
+            <br>   
+            <a href="{{url_for('index')}}"><button type='button' 
+                value=''>Back</button></a>
+        </div>
+    </form>
+</div>
+
+{% endblock %} 

@@ -3,20 +3,24 @@
 {% block corpo %}
 
 <div>
-  <form action="/cadastro_categoria">
+  <form action="/category/create">
     <label >Nome: </label>
     <input type="text" id="name" name="name" placeholder="Nome" required>
-    </br>
-    </br>
+    <br>
+    <br>
     <label >Descrição: </label>
     <input type="text" id="description" name="description" placeholder="Descrição" required>
+    <br>
+    <br>
     <input type="submit" value="Salvar">
-    </br>
-    </br>
+    <br>
   </form>
 </div>
 
-</br>
-<a href='/'> Voltar </a>
+<div class="row justify-content-center">
+  <div class="col-3">
+    <a class="btn btn-light btn-outline-secondary" href='/'>Voltar</a>
+  </div>
+</div>
 
 {% endblock %}

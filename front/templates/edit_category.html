@@ -1,0 +1,28 @@
+{% extends 'template.html' %}
+{% block titulo %}Editar Categoria{% endblock %}
+{% block corpo %}
+
+<div id="category">
+    <form action="/category/{{category.id_}}/update" method="GET">
+        <input name="id" id="id" value="{{category.id_}}" hidden>
+
+        <label>Nome: </label> <input type='text' name='name' placeholder="Escreva o nome da categoria"
+            value="{{category.nome}}" required />
+        <br>
+        <br>
+        <label>Descrição: </label> <input type='text' name='description' placeholder="Escreva a descriptição"
+            value="{{category.descricao}}" required /> 
+        <br>
+        <br>
+        <div class="buttons">
+            <button type='submit' 
+            value=''>Atualizar Categoria</button> 
+            <br>
+            <br>   
+            <a href="{{url_for('index')}}"><button type='button' 
+                value=''>Back</button></a>
+        </div>
+    </form>
+</div>
+
+{% endblock %} 

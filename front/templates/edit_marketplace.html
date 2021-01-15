@@ -1,0 +1,27 @@
+{% extends 'template.html' %}
+{% block titulo %}Editar Marketplace{% endblock %}
+{% block corpo %}
+
+<div id="marketplace">
+    <form action="/marketplace/{{marketplace.id_}}/update" method="GET">
+        <input name="id" id="id" value="{{marketplace.id_}}" hidden>
+
+        <label>Nome: </label> <input type='text' name='name' placeholder="Escreva o nome do Marketplace"
+            value="{{marketplace.nome}}" required />
+        <br>
+        <br>
+        <label>Descrição: </label> <input type='text' name='description' placeholder="Escreva a descriptição"
+            value="{{marketplace.descricao}}" required /> 
+        <br>
+        <br>
+        <div class="buttons">
+            <button type='submit' value=''>Atualizar Marketplace</button> 
+            <br>
+            <br>
+            <a href="{{url_for('index')}}"><button type='button' 
+                value=''>Back</button></a>
+        </div>
+    </form>
+</div>
+
+{% endblock %} 

@@ -1,14 +1,10 @@
-#from back.dao_txt.product_dao_txt import save_product, read_products
-from back.dao.product_dao import create_product_db, list_products_db
-from back.controllers.log_controller import create_log
+import sys
+sys.path.append('')
+from back.controllers.base_controller import BaseController
+from back.dao.product_dao import ProductDao
 
 
-def create_product(name: str, description: str, price: float ):
-    create_product_db(name, description, price)
-    create_log('register', 'product')
-
-def list_products():
-    products = list_products_db()
-    create_log('list', 'product')
-    return products
-    
+class ProductController(BaseController):
+    def __init__(self):
+        self.__dao = ProductDao()
+        super().__init__(self.__dao)

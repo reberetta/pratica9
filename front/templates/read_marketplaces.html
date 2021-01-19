@@ -11,16 +11,20 @@
                 </tr>
             </thead>
             <tbody>
-                {% for item in lista %}
+                {% for marketplace in lista %}
                 <tr>
-                    <td>{{item['name']}}</td>
-                    <td>{{item['description']}}</td>
+                    <td>{{ marketplace.nome }}</td>
+                    <td>{{ marketplace.descricao }}</td>
+                    <td>
+                        <a href="/marketplace/{{marketplace.id_}}/delete">Delete</a>
+                        <a href="/marketplace/{{marketplace.id_}}/update">Update</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div> 
-    </br>
+    <br>
 </div>
 <div class="row justify-content-center">
     <div class="col-3">

@@ -8,19 +8,24 @@
                 <tr>
                     <th scope="col">NOME</th>
                     <th scope="col">DESCRIÇÃO</th>
+                    <th scope="col">Opções</th>
                 </tr>
             </thead>
             <tbody>
                 {% for item in lista %}
                 <tr>
-                    <td>{{item['name']}}</td>
-                    <td>{{item['description']}}</td>
+                    <td>{{category.nome}}</td>
+                    <td>{{category.descricao}}</td>
+                    <td>
+                        <a href="/category/{{category.id_}}/delete">Delete</a>
+                        <a href="/category/{{category.id_}}/update">Update</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div> 
-    </br>
+    <br>
 </div>
 <div class="row justify-content-center">
     <div class="col-3">

@@ -1,0 +1,46 @@
+{% extends 'template.html' %}
+{% block titulo %} LOGS {% endblock %}
+{% block corpo %}
+<div class="row justify-content-center">
+    <div class="col-4">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">LOGS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in lista %}
+                <tr class="{{'table-success' if log.acao == 'create'}}
+                           {{'table-danger' if log.acao == 'delete'}} 
+                           {{'table-dark' if log.acao == 'read_by_id'}} 
+                           {{'table-info' if log.acao == 'read_all'}}
+                           {{'table-warning' if log.acao == 'update'}}">
+                    <td>{{ log.id_ }}</td>
+                    <td>{{ log.data_do_registro }} : {{ log.acao }} {{ log.elemento }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div> 
+    </br>
+</div>
+<div class="row justify-content-center">
+    <div class="col-3">
+        <a class="btn btn-light btn-outline-secondary" href='/'>Voltar</a>
+    </div>
+</div>
+<div class='my-legend row'>
+    <div class='legend-title'>Legenda</div>
+        <div class='legend-scale'>
+            <ul class='legend-labels'>
+            <li><span style='background:#d1e7dd;'></span>Create</li>
+            <li><span style='background:#f8d7da;'></span>Read All</li>
+            <li><span style='background:#c6c8ca;'></span>Read by ID</li>
+            <li><span style='background:#cff4fc;'></span>Update</li>
+            <li><span style='background:#fff3cd;'></span>Delete</li>
+            </ul>
+        </div>
+</div>
+{% endblock %}

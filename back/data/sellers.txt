@@ -1,6 +1,0 @@
-teste;teste;teste
-Marcos;marcos@olist.com;(22) 99999-4444
-Marcos;marcos@olist.com;(21) 999998888
-anonimo;fdsfsdfsf@gmail.com;46467867
-fgdfgfd;fdgdfgfd@fgdfgfdg.com;54654465465
-sdkjfhksdf;olist@olist.com;456546456

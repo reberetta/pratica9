@@ -15,9 +15,13 @@
       <tbody>
         {% for seller in sellers %}
           <tr>
-            <td>{{ seller['name'] }}</td>
-            <td>{{ seller['email'] }}</td>
-            <td>{{ seller['telephone'] }}</td>
+            <td>{{ seller.nome }}</td>
+            <td>{{ seller.email }}</td>
+            <td>{{ seller.telefone }}</td>
+            <td>
+              <a href="/seller/{{seller.id_}}/delete">Delete</a>
+              <a href="/seller/{{seller.id_}}/update">Update</a>
+          </td>
           </tr>
         {% endfor %}
       </tbody>
